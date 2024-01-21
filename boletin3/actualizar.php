@@ -18,7 +18,7 @@ if (isset($_POST['actualizar'])) {
     } catch (PDOException $e) {
         echo 'Error al actualizar el producto: ' . $e->getMessage();
     } finally {
-        // Cerrar la conexión a la base de datos en caso de éxito o error
+        
         $dwes = null;
     }
 } else {
