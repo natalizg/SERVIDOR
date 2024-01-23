@@ -1,8 +1,9 @@
 
+CREATE DATABASE IF NOT EXISTS departamentos;
+
 CREATE USER 'gestor_empleados'@'localhost' IDENTIFIED BY 'gestorGESTOR2';
 GRANT ALL PRIVILEGES ON *.* TO 'gestor_empleados'@'localhost' WITH GRANT OPTION;
 
-CREATE DATABASE IF NOT EXISTS departamentos;
 
 USE departamentos;
 

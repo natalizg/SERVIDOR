@@ -47,7 +47,8 @@
         try {
             $departamentos = new PDO('mysql:host=localhost;dbname=departamentos', 'gestor_empleados', 'gestorGESTOR2');
             $departamentos->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+            
+            //cuando tengamos el votador y el votante actualizamos la base de datos metiendo el voto:
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["empleado_votado"]) && isset($_POST["empleado_votador"])) {
                 $empleadoVotador = $_POST["empleado_votador"];
                 $empleadoVotado = $_POST["empleado_votado"];
@@ -62,6 +63,7 @@
             <div class="container">
                 <h3>Elija al candidato:</h3>
                 <form action="" method="post">
+                    <!-- Pasamos por hidden el votador del anterior archivo-->
                     <input type="hidden" name="empleado_votador" value="<?php echo $_POST["empleado_votador"]; ?>">
                     <table>
                         <?php while ($empleado = $consultaEmpleados->fetch(PDO::FETCH_ASSOC)) { ?>

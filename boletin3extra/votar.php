@@ -63,6 +63,7 @@
                     ?> 
                         <tr>
                             <td><?php echo $empleado["NOMBRE"]?> <?php echo $empleado["APELLIDOS"]?></td>
+                            <!-- Si el empleado ya tiene voto pongo el boton disabled -->
                             <td><button type="submit" name="empleado_votador" value="<?php echo $empleado['DNI'];?>" <?php if($empleado["VOTO"] != "") { echo "disabled"; } ?>>Votar</button></td>
                         </tr>
 
