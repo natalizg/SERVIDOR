@@ -1,10 +1,18 @@
 <?php
 
     //Este se encarga de conectar el modelo con la vista, creo
-    require_once('MODELO/modelo.php');
+    require('MODELO/modelo.php');
 
     //obtenemos los nombres de las familias:
-    $nombresFamilia = getFamiliasProductos(); 
+    $familias = getFamiliasProductos(); 
+    
+    /*
+    if (isset($_POST['mostrar'])){
+        $codFamilia = $_POST['familia'];
+        $productos = getProductos($codFamilia);
+    }
+    */
+
 
     // Incluir la lógica de la vista
     $data = array();

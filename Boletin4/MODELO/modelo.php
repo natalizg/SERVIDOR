@@ -4,8 +4,8 @@
 //poder luego entregarselos a la vista
 
 //Cogemos los datos de la BBDD;
-require_once('config.php');
-require_once('bbdd.php');
+require('config.php');
+require('bbdd.php');
 
 
 function getFamiliasProductos(){
@@ -13,18 +13,30 @@ function getFamiliasProductos(){
     $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
     //ejecutamos la consulta SQL:
-    $resultado = consulta_bbdd('SELECT NOMBRE FROM FAMILIA', $conexion);
+    $resultado = consulta_bbdd('SELECT COD, NOMBRE FROM FAMILIA', $conexion);
 
     //creamos una array para la capa de la vista:
-    $nombresFamilia = array();
+    $familias = array();
     while($fila = obtener_resultados($resultado) ){
-        $nombresFamilia[] = $fila;
+        $familias[] = $fila;
     }
 
     //cerramos conexión:
     cerrar_conexion($conexion);
 
-    return $nombresFamilia;
+    //Devuelve una array bidimensional:
+    return $familias;
 }
+
+function getProductos(){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT NOMBRE_CORTO, PVP FROM PRODUCTO ", $conexion);
+    $productos = array();
+    while($fila = obtener_resultados($resultado)){
+        $productos[] = $fila;
+    }
+    cerrar_conexion($conexion);
+}
+
 
 ?>
