@@ -18,7 +18,7 @@
                 <h3>Productos de la familia seleccionada:</h3>
                 <ul>
                     <?php  foreach($productos as $producto): ?>
-                        <li> <?php echo $producto['NOMBRE_CORTO']?> - <b>PVP:</b> <?php echo $producto['PVP']?> <a href='vistaEditar.php'>Editar</a></li> 
+                        <li> <?php echo $producto['NOMBRE_CORTO']?> - <b>PVP:</b> <?php echo $producto['PVP']?> <a href='index.php?producto=<?php echo $producto['NOMBRE_CORTO'] ?>'>Editar</a></li> 
                     <?php endforeach; ?>
                 </ul>    
             <?php    

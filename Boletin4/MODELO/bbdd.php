@@ -18,6 +18,6 @@
     function obtener_resultados($resultado){
         return $resultado->fetch_assoc();
     }
-
+    
 ?>
 

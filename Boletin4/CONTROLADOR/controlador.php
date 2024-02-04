@@ -11,6 +11,19 @@
         $codFamilia = $_POST['familia'];
         $productos = getProductos($codFamilia);
     }
+
+    if(isset($_GET['producto'])){
+        $producto = $_GET['producto'];
+        $caracteristicasProducto = getCaracteristicasProductos($producto);
+    }
+
+    if(isset($_POST['actualizar'])){
+        $nombreAntiguo = $_POST['nombre_antiguo'];
+        $nombreCorto = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $pvp = $_POST['pvp'];
+        actualizarProducto($nombreCorto, $descripcion, $pvp, $nombreAntiguo);
+    }
     
 
 
@@ -18,6 +31,9 @@
     $data = array();
     $data['title'] = "Tienda Online";
     $data['body'] = 'VISTA/vistaListado.php';
+    if(isset(($_GET['producto']))){
+        $data['body'] = 'VISTA/vistaEditar.php';
+    }
     require('VISTA/LAYOUT/layout.php');
     
 

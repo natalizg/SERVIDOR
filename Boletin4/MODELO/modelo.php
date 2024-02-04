@@ -39,5 +39,25 @@ function getProductos($codFamilia){
     return $productos;
 }
 
+function getCaracteristicasProductos($nombreProducto){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT NOMBRE_CORTO, NOMBRE, DESCRIPCION, PVP FROM PRODUCTO WHERE NOMBRE_CORTO = '$nombreProducto'", $conexion);
+    $productos =  obtener_resultados($resultado);
+    cerrar_conexion($conexion);
+    return $productos;
+    
+}
+
+function actualizarProducto($nombreCorto, $descripcion, $pvp, $nombreAntiguo){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    echo $nombreCorto;
+    echo $descripcion;
+    echo $pvp;
+    $conexion->query("UPDATE PRODUCTO SET NOMBRE_CORTO = '$nombreCorto', DESCRIPCION = '$descripcion', PVP = '$pvp' WHERE NOMBRE_CORTO = '$nombreAntiguo'");
+
+    //$conexion->query("UPDATE PRODUCTO SET NOMBRE_CORTO = '$nombreCorto', DESCRIPCION = '$descripcion', PVP = '$pvp' WHERE NOMBRE_CORTO = '$nombreCorto'");
+    cerrar_conexion($conexion);
+    
+}
 
 ?>
