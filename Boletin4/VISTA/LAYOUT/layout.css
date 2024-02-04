@@ -29,7 +29,7 @@ select {
     padding: 5px;
 }
 
-input[type="submit"] {
+button{
     padding: 8px 15px;
     background-color: #4caf50;
     color: #fff;
@@ -38,7 +38,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-input[type="submit"]:hover {
+button:hover {
     background-color: #45a049;
 }
 
@@ -62,4 +62,31 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+.edit-form {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.editar label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 150px; /* Establece una altura mínima */
+    max-height: 500px; /* Establece una altura máxima para evitar un crecimiento excesivo */
+    height: auto; /* Hace que la altura se ajuste automáticamente */
+    resize: none;
 }

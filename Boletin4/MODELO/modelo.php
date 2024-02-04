@@ -50,12 +50,7 @@ function getCaracteristicasProductos($nombreProducto){
 
 function actualizarProducto($nombreCorto, $descripcion, $pvp, $nombreAntiguo){
     $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    echo $nombreCorto;
-    echo $descripcion;
-    echo $pvp;
     $conexion->query("UPDATE PRODUCTO SET NOMBRE_CORTO = '$nombreCorto', DESCRIPCION = '$descripcion', PVP = '$pvp' WHERE NOMBRE_CORTO = '$nombreAntiguo'");
-
-    //$conexion->query("UPDATE PRODUCTO SET NOMBRE_CORTO = '$nombreCorto', DESCRIPCION = '$descripcion', PVP = '$pvp' WHERE NOMBRE_CORTO = '$nombreCorto'");
     cerrar_conexion($conexion);
     
 }

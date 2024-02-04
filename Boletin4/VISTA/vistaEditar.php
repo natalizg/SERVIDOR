@@ -1,5 +1,6 @@
 <div class ="container">
-    <form action="index.php" method="post">
+    <h2>Editar Producto</h2>
+    <form class="editar" action="index.php" method="post">
         <input type="hidden" name="nombre_antiguo" value="<?= $caracteristicasProducto['NOMBRE_CORTO'] ?>">
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" value="<?= $caracteristicasProducto['NOMBRE_CORTO'] ?>">
