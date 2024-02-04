@@ -6,12 +6,12 @@
     //obtenemos los nombres de las familias:
     $familias = getFamiliasProductos(); 
     
-    /*
+    
     if (isset($_POST['mostrar'])){
         $codFamilia = $_POST['familia'];
         $productos = getProductos($codFamilia);
     }
-    */
+    
 
 
     // Incluir la lógica de la vista

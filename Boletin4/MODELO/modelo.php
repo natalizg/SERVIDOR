@@ -28,14 +28,15 @@ function getFamiliasProductos(){
     return $familias;
 }
 
-function getProductos(){
+function getProductos($codFamilia){
     $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    $resultado = consulta_bbdd("SELECT NOMBRE_CORTO, PVP FROM PRODUCTO ", $conexion);
+    $resultado = consulta_bbdd("SELECT NOMBRE_CORTO, PVP FROM PRODUCTO WHERE FAMILIA = '$codFamilia' ", $conexion);
     $productos = array();
     while($fila = obtener_resultados($resultado)){
         $productos[] = $fila;
     }
     cerrar_conexion($conexion);
+    return $productos;
 }
 
 
