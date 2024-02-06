@@ -1,4 +1,14 @@
 <h1>REGISTRO CLIENTE</h1>
+
+<?php
+    if(isset($correo_cliente)){
+        if(correo_ya_registrado($correo_cliente)){
+    ?>
+    <h3 style="color:red">Correo ya registrado.</h3>    
+    <?php
+        }    
+    }
+?>
 <form action="index.php" method="post">
     <label for="correo">Correo Electrónico</label>
     <input type="text" name="correo">

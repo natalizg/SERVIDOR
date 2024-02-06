@@ -19,17 +19,26 @@
 
     //Registro Cliente:
     if(isset($_POST['registrar'])){
-        $correo = $_POST['correo'];
-        $contrasena = $_POST['contrasena'];
-        $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        $conexion->query();
-
+        $correo_cliente = $_POST['correo'];
+        $contrasena_cliente = $_POST['contrasena'];
+        if(correo_ya_registrado($correo_cliente)){
+            $data['body'] = 'VISTA/vistaRegistroCliente.php';
+        }else{
+            registrar_cliente($correo_cliente, $contrasena_cliente);
+            $data['body'] = 'VISTA/vistaMenuCliente.php';
+        }
     }
 
     //Inicio sesión cliente:
-    
-    if(isset($_POST['inicioSesion'])){
-        $data['body'] = 'VISTA/vistaInicioCliente.php'
+    if(isset($_POST['iniciarSesion'])){
+        $data['body'] = 'VISTA/vistaInicioCliente.php';
+    }
+    if(isset($_POST['iniciar'])){
+        $correo_cliente = $_POST['correo'];
+        $contrasena_cliente = $_POST['contrasena'];
+        if(inicio_correcto($correo_cliente, $contrasena_cliente)){
+            $data['body'] = 'VISTA/vistaMenuCliente.php';
+        }
     }
 
 
