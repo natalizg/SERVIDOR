@@ -48,4 +48,18 @@ function inicio_correcto($correo, $contrasena){
 
 }
 
+
+//funciones sin terminar:
+
+function verificar_reserva($fecha, $hora, $mesa){
+    $laReservaExiste = false; 
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT CORREO_CLIENTE FROM CLIENTE WHERE CORREO_CLIENTE = '$correo'", $conexion);
+
+}
+function nueva_reserva($fecha, $hora, $mesa, $correoCliente){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT CORREO_CLIENTE FROM CLIENTE WHERE CORREO_CLIENTE = '$correo'", $conexion);
+}
+
 ?>

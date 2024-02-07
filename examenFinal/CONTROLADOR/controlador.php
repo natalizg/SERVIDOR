@@ -17,6 +17,10 @@
         }
     }
 
+    
+    ///////////// OPCIONES CLIENTE //////////////////
+
+
     //Registro Cliente:
     if(isset($_POST['registrar'])){
         $correo_cliente = $_POST['correo'];
@@ -40,6 +44,46 @@
             $data['body'] = 'VISTA/vistaMenuCliente.php';
         }
     }
+
+
+    //Inicio sesión cliente:
+    if(isset($_POST['inicioSesion'])){
+        $data['body'] = 'VISTA/vistaInicioCliente.php';
+    }
+
+    // Opciones del menú del cliente:
+
+    // GESTIONAR Y VER RESERVAS
+    if(isset($_POST['gestionarReserva'])){
+        $data['body'] = 'VISTA/vistaReservasCliente.php';
+    }
+
+
+    // CREAR UNA NUEVA RESERVA:
+    if(isset($_POST['nuevaReserva'])){
+        $data['body'] = 'VISTA/vistaNuevaReserva.php';
+    }
+
+    if(isset($_POST['reservar'])){
+        $fecha = $_POST['fecha'];
+        $hora = $_POST['hora'];
+        $mesa = $_POST['mesa'];
+    }
+
+
+
+    // VER HISTORIAL DE RESERVAS
+    if(isset($_POST['historialReserva'])){
+        $data['body'] = 'VISTA/vistaHistorialReservasCliente.php';
+    }
+
+
+
+
+
+
+    ////////////// OPCIONES USUARIO ///////////////
+
 
 
     require('VISTA/LAYOUT/layout.php');
