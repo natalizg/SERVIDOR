@@ -20,7 +20,6 @@
     
     ///////////// OPCIONES CLIENTE //////////////////
 
-
     //Registro Cliente:
     if(isset($_POST['registrar'])){
         $correo_cliente = $_POST['correo'];
@@ -55,19 +54,35 @@
 
     // GESTIONAR Y VER RESERVAS
     if(isset($_POST['gestionarReserva'])){
+        $correo_cliente = $_POST['correo'];
+        $reservas = reservas_activas($correo_cliente);
+
+
         $data['body'] = 'VISTA/vistaReservasCliente.php';
     }
 
 
     // CREAR UNA NUEVA RESERVA:
     if(isset($_POST['nuevaReserva'])){
+        $correo_cliente = $_POST['correo'];
         $data['body'] = 'VISTA/vistaNuevaReserva.php';
     }
 
     if(isset($_POST['reservar'])){
+        $correo_cliente = $_POST['correo'];
         $fecha = $_POST['fecha'];
         $hora = $_POST['hora'];
+        $descripcion = $_POST['descripcion'];
         $mesa = $_POST['mesa'];
+        echo $correo_cliente;
+        if(existe_reserva($fecha, $hora, $mesa)){
+            $data['body'] = 'VISTA/vistaNuevaReserva.php';
+        }else{
+            nueva_reserva($fecha, $hora, $mesa, $descripcion, $correo_cliente);
+            $nuevaReservaCompletada = true;
+            $data['body'] = 'VISTA/vistaMenuCliente.php';
+
+        }
     }
 
 

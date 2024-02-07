@@ -1,6 +1,17 @@
 <h1>NUEVA RESERVA</h1>
 
+<?php
+if(isset($fecha,$hora, $mesa)){
+    if(existe_reserva($fecha, $hora, $mesa, $correo_cliente)){
+        ?>
+        <h3 style="color:red">Reserva no disponible</h3>    
+        <?php
+    }
+}
+?>
+
 <form action="index.php" method="post">
+    <input type="hidden" name="correo" value="<?php echo $correo_cliente?>">
     <label for="fecha" name="fecha">Fecha:</label>
     <input type="date" name="fecha">
     <label for="hora" name="hora">Hora:</label>
@@ -20,5 +31,7 @@
         <option value="4">4</option>
         <option value="5">5</option>
     </select>
+    <label for="descripcion" name="descripcion">Descripción (opcional):</label>
+    <input type="text" name="descripcion">
     <button type="submit" name="reservar">Reservar</button> 
 </form>

@@ -1,0 +1,3 @@
+- controlar el inicio de sesión --> si mete correo que no está en la bbdd, si mete contraseña incorrecta o si no rellena alguno de los campos
+- añadir botón de volver a las páginas pero no dejar volver si estás dentro de una cuenta.
+- 
