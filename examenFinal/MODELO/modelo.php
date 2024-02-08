@@ -79,4 +79,41 @@ function reservas_activas($correoCliente){
 
 }
 
+function eliminar_reserva($fecha, $hora, $mesa){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $conexion->query("DELETE FROM RESERVA WHERE FECHA = '$fecha' AND HORA = '$hora' AND MESA = $mesa");
+}
+
+function reservas_antiguas($correoCliente){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT FECHA, HORA, MESA, DESCRIPCION FROM RESERVA WHERE CORREO_CLIENTE = '$correoCliente' AND FECHA < CURDATE() ", $conexion);
+    $reservas = array();
+    while($fila = obtener_resultados($resultado)){
+        $reservas[] = $fila;
+    }
+    cerrar_conexion($conexion);
+    return $reservas;
+}
+
+
+function inicio_correcto_empleado($usuario, $contrasena){
+    $inicioCorrecto = false;
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT USUARIO_EMPLEADO FROM EMPLEADO WHERE USUARIO_EMPLEADO = '$usuario'", $conexion);
+    $usuarioQuery = obtener_resultados($resultado);
+
+    $resultado = consulta_bbdd("SELECT CONTRASENA FROM EMPLEADO WHERE USUARIO_EMPLEADO = '$usuario'", $conexion);
+    $contrasenaQuery = obtener_resultados($resultado);
+
+    //Si el correo y contraseña están en la bbdd y corresponde devolvemos true:
+    if ($usuarioQuery !== null && isset($usuarioQuery['USUARIO_EMPLEADO']) && $contrasenaQuery !==null && isset($contrasenaQuery['CONTRASENA'])) {
+        if($usuario == $usuarioQuery['USUARIO_EMPLEADO'] && $contrasena == $contrasenaQuery['CONTRASENA']){
+            $inicioCorrecto=true;
+        }
+
+    }
+
+    cerrar_conexion($conexion);
+    return $inicioCorrecto;
+}
 ?>

@@ -9,6 +9,13 @@ if(isset($nuevaReservaCompletada)){
     <h3 style="color:blue">Reserva hecha</h3>    
     <?php
 }
+
+if(isset($reservaEliminada)){
+    ?>
+    <h3 style="color:blue">Reserva eliminada</h3>    
+    <?php
+}
+
 ?>
 
 <form action="index.php" method="post">

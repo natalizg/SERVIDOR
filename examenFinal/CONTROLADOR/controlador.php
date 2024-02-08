@@ -41,13 +41,10 @@
         $contrasena_cliente = $_POST['contrasena'];
         if(inicio_correcto($correo_cliente, $contrasena_cliente)){
             $data['body'] = 'VISTA/vistaMenuCliente.php';
+        }else{
+            $data['body'] = 'VISTA/vistaInicioCliente.php';
+            //controlar aquí los errores de inicio de sesión.
         }
-    }
-
-
-    //Inicio sesión cliente:
-    if(isset($_POST['inicioSesion'])){
-        $data['body'] = 'VISTA/vistaInicioCliente.php';
     }
 
     // Opciones del menú del cliente:
@@ -60,6 +57,18 @@
 
         $data['body'] = 'VISTA/vistaReservasCliente.php';
     }
+
+    if(isset($_POST['eliminarReservaSeleccionada'])) {
+        $correo_cliente = $_POST['correo'];
+        // Obtener el valor del botón "Cancelar"
+        $valorBoton = $_POST['eliminarReservaSeleccionada'];
+        // Separar los valores de fecha, hora y mesa
+        list($fecha, $hora, $mesa) = explode('_', $valorBoton);
+        eliminar_reserva($fecha,$hora,$mesa);
+        $reservaEliminada = true;
+        $data['body'] = 'VISTA/vistaMenuCliente.php';
+    }
+
 
 
     // CREAR UNA NUEVA RESERVA:
@@ -87,8 +96,11 @@
 
 
 
-    // VER HISTORIAL DE RESERVAS
+    // VER HISTORIAL DE RESERVAS:
     if(isset($_POST['historialReserva'])){
+        $correo_cliente = $_POST['correo'];
+        $reservas = reservas_antiguas($correo_cliente);
+
         $data['body'] = 'VISTA/vistaHistorialReservasCliente.php';
     }
 
@@ -96,10 +108,18 @@
 
 
 
-
     ////////////// OPCIONES USUARIO ///////////////
 
-
+    //Inicio Sesión empleado:
+    if(isset($_POST['iniciarEmpleado'])){
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
+        if(inicio_correcto_empleado($usuario, $contrasena)){
+            $data['body'] = 'VISTA/VistaMenuEmpleado.php';
+        }else{
+            $data['body'] = 'VISTA/vistaInicioEmpleado.php';
+        }
+    }
 
     require('VISTA/LAYOUT/layout.php');
     
