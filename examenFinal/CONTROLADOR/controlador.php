@@ -121,6 +121,55 @@
         }
     }
 
+    //Añadir nuevo usuario:
+    if(isset($_POST['nuevoUsuario'])){
+        $usuario = $_POST['usuario'];
+        $data['body'] = 'VISTA/VistaNuevoUsuario.php';
+    }
+
+    if(isset($_POST['crearUsuario'])){
+        $usuario = $_POST['usuario'];
+        $usuarioNuevo = $_POST['usuarioNuevo'];
+        $contrasena = $_POST['contrasena'];
+        if(!existe_usuario($usuarioNuevo)){
+            crear_usuario($usuarioNuevo, $contrasena);
+            $data['body'] = 'VISTA/vistaMenuEmpleado.php';
+        }else{
+            $yaExisteUsuario = true;
+            $data['body'] = 'VISTA/VistaNuevoUsuario.php';
+        }
+        
+
+    }
+
+    //Visualizar y eliminar reservas:
+
+    if(isset($_POST['visualizarReservas'])){
+        $reservas = todas_reservas_activas();
+        $data['body'] = 'VISTA/VistaReservasEmpleado.php';
+    }
+    if(isset($_POST['filtrarReservas'])){
+        $fecha = $_POST['fecha'];
+        $reservas = resrvas_filtradas($fecha);
+        $data['body'] = 'VISTA/VistaReservasEmpleado.php';
+    }
+
+    if(isset($_POST['eliminarReservaEmpleado'])){
+        $reservas_serializadas = $_POST['reservas'];
+        $reservas = unserialize($reservas_serializadas);
+        $valorBoton = $_POST['eliminarReservaEmpleado'];
+        list($fecha, $hora, $mesa) = explode('_', $valorBoton);
+        eliminar_reserva($fecha,$hora,$mesa);
+
+        //Cargamos la lista actualizada de reservas:
+        $reservas_actualizadas = todas_reservas_activas();
+        //se la pasamos a la vista:
+        $data['reservas'] = $reservas_actualizadas;
+        $reservaEliminada = true;
+        $data['body'] = 'VISTA/VistaReservasEmpleado.php';
+    }
+
+
     require('VISTA/LAYOUT/layout.php');
     
 

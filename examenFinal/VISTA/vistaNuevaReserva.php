@@ -13,7 +13,7 @@ if(isset($fecha,$hora, $mesa)){
 <form action="index.php" method="post">
     <input type="hidden" name="correo" value="<?php echo $correo_cliente?>">
     <label for="fecha" name="fecha">Fecha:</label>
-    <input type="date" name="fecha">
+    <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>">
     <label for="hora" name="hora">Hora:</label>
     <select name="hora" id="hora">
         <option value="20:30">20:30</option>

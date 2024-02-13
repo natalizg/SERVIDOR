@@ -76,7 +76,6 @@ function reservas_activas($correoCliente){
     }
     cerrar_conexion($conexion);
     return $reservas;
-
 }
 
 function eliminar_reserva($fecha, $hora, $mesa){
@@ -116,4 +115,45 @@ function inicio_correcto_empleado($usuario, $contrasena){
     cerrar_conexion($conexion);
     return $inicioCorrecto;
 }
+function existe_usuario($usuario){
+    $existeUsuario = true;
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT USUARIO_EMPLEADO FROM EMPLEADO WHERE USUARIO_EMPLEADO = '$usuario'", $conexion);
+    $usuarioQuery = obtener_resultados($resultado);
+    if($usuarioQuery == null){
+        $existeUsuario = false;
+    }
+    cerrar_conexion($conexion);
+    return $existeUsuario;
+}
+
+function crear_usuario($usuario, $contrasena){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $conexion -> query("INSERT INTO EMPLEADO (USUARIO_EMPLEADO, CONTRASENA) VALUES ('$usuario', '$contrasena')");
+    cerrar_conexion($conexion);
+}
+
+function todas_reservas_activas(){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT FECHA, HORA, MESA, DESCRIPCION, CORREO_CLIENTE FROM RESERVA WHERE FECHA >= CURDATE() ", $conexion);
+    $reservas = array();
+    while($fila = obtener_resultados($resultado)){
+        $reservas[] = $fila;
+    }
+    cerrar_conexion($conexion);
+    return $reservas;
+}
+
+function reservas_filtradas($fecha){
+    $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    $resultado = consulta_bbdd("SELECT FECHA, HORA, MESA, DESCRIPCION, CORREO_CLIENTE FROM RESERVA WHERE FECHA >= '$fecha' ", $conexion);
+    $reservas = array();
+    while($fila = obtener_resultados($resultado)){
+        $reservas[] = $fila;
+    }
+    cerrar_conexion($conexion);
+    return $reservas;
+}
+
+
 ?>
