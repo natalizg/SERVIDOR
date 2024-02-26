@@ -146,7 +146,7 @@ function todas_reservas_activas(){
 
 function reservas_filtradas($fecha){
     $conexion = crear_conexion(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    $resultado = consulta_bbdd("SELECT FECHA, HORA, MESA, DESCRIPCION, CORREO_CLIENTE FROM RESERVA WHERE FECHA >= '$fecha' ", $conexion);
+    $resultado = consulta_bbdd("SELECT FECHA, HORA, MESA, DESCRIPCION, CORREO_CLIENTE FROM RESERVA WHERE FECHA = '$fecha' ", $conexion);
     $reservas = array();
     while($fila = obtener_resultados($resultado)){
         $reservas[] = $fila;

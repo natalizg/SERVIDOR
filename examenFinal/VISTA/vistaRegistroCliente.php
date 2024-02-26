@@ -6,7 +6,13 @@
     ?>
     <h3 style="color:red">Correo ya registrado.</h3>    
     <?php
-        }    
+        }  
+        if($correo_cliente == "" || $contrasena_cliente == ""){
+            ?>
+            <h3 style="color:red">No deje campos vacíos.</h3>    
+            <?php
+        }      
+
     }
 ?>
 <form action="index.php" method="post">

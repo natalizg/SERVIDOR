@@ -24,7 +24,10 @@
     if(isset($_POST['registrar'])){
         $correo_cliente = $_POST['correo'];
         $contrasena_cliente = $_POST['contrasena'];
-        if(correo_ya_registrado($correo_cliente)){
+        echo "correo: " . $correo_cliente;
+        echo "contra: " . $contrasena_cliente;
+
+        if(correo_ya_registrado($correo_cliente) || $correo_cliente == "" || $contrasena_cliente == ""){
             $data['body'] = 'VISTA/vistaRegistroCliente.php';
         }else{
             registrar_cliente($correo_cliente, $contrasena_cliente);
@@ -66,7 +69,9 @@
         list($fecha, $hora, $mesa) = explode('_', $valorBoton);
         eliminar_reserva($fecha,$hora,$mesa);
         $reservaEliminada = true;
-        $data['body'] = 'VISTA/vistaMenuCliente.php';
+        $reservas = reservas_activas($correo_cliente);
+
+        $data['body'] = 'VISTA/vistaReservasCliente.php';
     }
 
 
@@ -108,7 +113,7 @@
 
 
 
-    ////////////// OPCIONES USUARIO ///////////////
+    ////////////// OPCIONES EMPLEADO ///////////////
 
     //Inicio Sesión empleado:
     if(isset($_POST['iniciarEmpleado'])){
@@ -148,23 +153,20 @@
         $reservas = todas_reservas_activas();
         $data['body'] = 'VISTA/VistaReservasEmpleado.php';
     }
+
     if(isset($_POST['filtrarReservas'])){
         $fecha = $_POST['fecha'];
-        $reservas = resrvas_filtradas($fecha);
+        $reservas = reservas_filtradas($fecha);
         $data['body'] = 'VISTA/VistaReservasEmpleado.php';
     }
 
     if(isset($_POST['eliminarReservaEmpleado'])){
-        $reservas_serializadas = $_POST['reservas'];
-        $reservas = unserialize($reservas_serializadas);
         $valorBoton = $_POST['eliminarReservaEmpleado'];
         list($fecha, $hora, $mesa) = explode('_', $valorBoton);
         eliminar_reserva($fecha,$hora,$mesa);
 
         //Cargamos la lista actualizada de reservas:
-        $reservas_actualizadas = todas_reservas_activas();
-        //se la pasamos a la vista:
-        $data['reservas'] = $reservas_actualizadas;
+        $reservas = todas_reservas_activas();
         $reservaEliminada = true;
         $data['body'] = 'VISTA/VistaReservasEmpleado.php';
     }

@@ -1,5 +1,14 @@
 <h1>RESERVAS CLIENTE</h1>
 
+<?php
+    if(isset($reservaEliminada)){
+    ?>
+        <h3 style="color:blue">Reserva eliminada</h3>    
+    <?php   
+    }
+
+?>
+
 <form action="index.php" method="post">
     <input type="hidden" name="correo" value="<?php echo $correo_cliente?>">
     <table>

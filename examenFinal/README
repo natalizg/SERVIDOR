@@ -1,4 +1,5 @@
-- controlar el inicio de sesión --> si mete correo que no está en la bbdd, si mete contraseña incorrecta o si no rellena alguno de los campos
+- controlar el inicio de sesión --> si mete correo que no está en la bbdd, si mete contraseña incorrecta o si no rellena alguno de los campos.
+
 - añadir botón de volver a las páginas pero no dejar volver si estás dentro de una cuenta.
+
 - que no me metan espacios en la contraseña o me metan fechas raras o vacias?
-- NO ME VA EL FILTRAR RESERVAS NI TAMPOCO 
