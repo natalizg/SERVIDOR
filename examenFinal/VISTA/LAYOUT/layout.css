@@ -1,0 +1,158 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+body::before{
+    background: url("../../ASSETS/bg1.png");
+    position:absolute;
+    content:'';
+    left:0;
+    top:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    opacity:0.5;
+    display:block;
+}
+
+header{
+    position: relative;
+}
+main{
+    position:relative;
+}
+
+#footer {
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background:#999;
+ }
+ 
+.menu {
+    position: relative;
+    background-color: #85CED2; 
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+}
+
+.menu .izq {
+    display: flex;
+    align-items: center;
+    margin-left:25px;
+}
+
+.izq img {
+    margin-bottom:10px;
+    margin-top:10px;
+}
+a{
+    color:inherit;
+    text-decoration: none;            
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right:30px;
+}
+
+.menu li {
+    margin-left: 15px; /* Espacio entre elementos de la lista */
+}
+
+.menu li:first-child {
+    margin-left: 0; /* Eliminar el margen izquierdo del primer elemento de la lista */
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    padding: 35px 30px;
+}
+
+.menu li a:hover {
+    background-color: #6CACB0;
+}
+.contenedor {
+    width:50%;
+    margin:auto;
+    margin-top: 100px;
+    background-color: #FFF1D7;
+    border-radius: 20px; 
+    padding: 50px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.interior{
+    text-align:center;
+}
+
+h3{
+    margin-bottom:20px;
+}
+h2{
+    margin-bottom:20px;
+}
+.registro{
+    margin-top:50px;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px 20px;
+    background-color: #85CED2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #6CACB0;
+}
+button:active {
+    background-color: #6CACB0;
+}
+
+input[type="text"], input[type="date"], select{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: white;
+    color: black;
+}

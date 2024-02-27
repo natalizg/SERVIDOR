@@ -1,2 +1,2 @@
 
-<?php require('CONTROLADOR/controlador.php');?>
+<?php include_once('CONTROLADOR/controlador.php');?>
