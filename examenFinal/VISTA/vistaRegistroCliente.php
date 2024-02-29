@@ -19,12 +19,14 @@
 
             }
         ?>
-        <form action="index.php" method="post">
+        <form class="formulario" action="index.php" method="post">
             <label for="correo">Correo Electrónico</label>
             <input type="text" name="correo">
             <label for="contrasena">Contraseña</label>
             <input type="text" name="contrasena">
+            <div class="boton">
             <button type="submit" name="registrar" value="registrar">Regístrate</button>
+            </div>
             <p class="registro">¿Ya tienes cuenta?</p>
             <button type="submit" name="iniciarSesion">Iniciar sesión</button>
         </form>

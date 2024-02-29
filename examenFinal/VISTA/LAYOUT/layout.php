@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="VISTA/LAYOUT/layout.css">
 </head>
 <body>
+    <div class="contenedor-principal">
     <header>
         <nav class="menu">
             <div class="izq">
@@ -33,5 +34,6 @@
     <footer>
         <h3>FOOTER</h3>
     </footer>
+    </div>
 </body>
 </html>
