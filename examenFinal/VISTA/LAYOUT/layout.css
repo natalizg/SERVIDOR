@@ -105,9 +105,12 @@ a{
     text-align:center;
 }
 
+
+
 h3{
     margin-bottom:20px;
 }
+
 h2{
     margin-bottom:20px;
 }
@@ -125,9 +128,11 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
 button:hover {
     background-color: #6CACB0;
 }
+
 button:active {
     background-color: #6CACB0;
 }
