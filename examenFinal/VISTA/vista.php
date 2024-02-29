@@ -1,4 +1,4 @@
-<div class = "contenedor">
+<div class = "contenedor-login">
     <div class="title">
         <h2>Bienvenido a SUSHI</h2>
     </div>

@@ -13,7 +13,7 @@
             }
         ?>
 
-        <form action="index.php" method="post">
+        <form class="filtro" action="index.php" method="post">
             <label for="fecha">Seleccionar Fecha:</label>
             <input type="date" id="fecha" name="fecha" value="<?php echo date('Y-m-d'); ?>">
             <button type="submit" name="filtrarReservas">Filtrar</button>

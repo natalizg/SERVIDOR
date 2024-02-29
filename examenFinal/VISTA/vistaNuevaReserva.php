@@ -1,6 +1,5 @@
 
-
-<div class="contenedor">
+<div class="contenedor-login">
     <div class="title">
         <h2>NUEVA RESERVA</h2>
     </div>
@@ -14,7 +13,7 @@
                 }
             }
         ?>
-        <form action="index.php" method="post">
+        <form class="formulario" action="index.php" method="post">
             <input type="hidden" name="correo" value="<?php echo $correo_cliente?>">
             <label for="fecha" name="fecha">Fecha:</label>
             <input type="date" name="fecha" value="<?php echo date('Y-m-d'); ?>">
@@ -37,7 +36,7 @@
             </select>
             <label for="descripcion" name="descripcion">Descripción (opcional):</label>
             <input type="text" name="descripcion">
-            <button type="submit" name="reservar">Reservar</button> 
+            <div class="boton"><button type="submit" name="reservar">Reservar</button> </div>
         </form>
     </div>
 </div>

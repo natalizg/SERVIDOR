@@ -1,6 +1,6 @@
 
 
-<div class="contenedor">
+<div class="contenedor-login">
     <div class="title">
         <h2>INICIO EMPLEADO</h2>
     </div>
@@ -14,12 +14,12 @@
                 }    
             }
         ?>
-        <form action="index.php" method="post">
+        <form class="formulario" action="index.php" method="post">
             <label for="usuario">Usuario:</label>
             <input type="text" name="usuario">
             <label for="contrasena">Contraseña:</label>
             <input type="text" name="contrasena">
-            <button type="submit" name="iniciarEmpleado">Inicia Sesión</button>
+            <div class="boton"><button type="submit" name="iniciarEmpleado">Inicia Sesión</button></div>
         </form>
     </div>
 </div>

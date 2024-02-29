@@ -32,7 +32,7 @@
             <?php include $data['body']; ?>
     </main>
     <footer>
-        <h3>FOOTER</h3>
+        <h4>© 2024 Desarrollado por Natalia Zg. Todos los derechos reservados. 🌐</h4>
     </footer>
     </div>
 </body>

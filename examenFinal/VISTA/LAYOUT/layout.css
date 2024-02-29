@@ -29,13 +29,16 @@ main {
 }
 
 footer {
+    color:white;
     position:fixed;
     left:0;
     bottom:0;
     height:30px;
     width:100%;
-    background:#999;
+    background:#85CED2;
     right: 0;
+    text-align: center;
+    padding: 10px;
  }
  
 .menu {
@@ -93,7 +96,17 @@ a {
 .contenedor {
     width:50%;
     margin:auto;
-    margin-top: 100px;
+    margin-top: 150px;
+    margin-bottom:100px;
+    background-color: #FFF1D7;
+    border-radius: 20px; 
+    padding: 50px;
+}
+
+.contenedor-login{
+    width:20%;
+    margin:auto;
+    margin-top: 150px;
     background-color: #FFF1D7;
     border-radius: 20px; 
     padding: 50px;
@@ -174,4 +187,6 @@ table th {
     margin-top: 15px;
 }
 
-
+.filtro{
+    margin-bottom: 15px;
+}

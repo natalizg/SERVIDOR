@@ -1,5 +1,5 @@
 
-<div class="contenedor">
+<div class="contenedor-login">
     <div class="title">
         <h2>REGISTRO CLIENTE</h2>
     </div>

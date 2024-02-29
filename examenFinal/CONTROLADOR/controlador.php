@@ -24,8 +24,6 @@
     if(isset($_POST['registrar'])){
         $correo_cliente = $_POST['correo'];
         $contrasena_cliente = $_POST['contrasena'];
-        echo "correo: " . $correo_cliente;
-        echo "contra: " . $contrasena_cliente;
 
         if(correo_ya_registrado($correo_cliente) || $correo_cliente == "" || $contrasena_cliente == ""){
             $data['body'] = 'VISTA/vistaRegistroCliente.php';
@@ -88,7 +86,6 @@
         $hora = $_POST['hora'];
         $descripcion = $_POST['descripcion'];
         $mesa = $_POST['mesa'];
-        echo $correo_cliente;
         if(existe_reserva($fecha, $hora, $mesa)){
             $data['body'] = 'VISTA/vistaNuevaReserva.php';
         }else{
@@ -136,11 +133,10 @@
         $usuario = $_POST['usuario'];
         $usuarioNuevo = $_POST['usuarioNuevo'];
         $contrasena = $_POST['contrasena'];
-        if(!existe_usuario($usuarioNuevo)){
+        if(!existe_usuario($usuarioNuevo) && $usuarioNuevo!="" && $contrasena!=""){
             crear_usuario($usuarioNuevo, $contrasena);
             $data['body'] = 'VISTA/vistaMenuEmpleado.php';
         }else{
-            $yaExisteUsuario = true;
             $data['body'] = 'VISTA/VistaNuevoUsuario.php';
         }
         
