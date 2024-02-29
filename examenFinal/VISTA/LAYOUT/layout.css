@@ -3,14 +3,14 @@
     padding:0px;
 }
 
-body{
+body {
     font-family: 'Montserrat', sans-serif;
-    position: relative;
+    
 }
 
-body::before{
+.contenedor-principal::before {
     background: url("../../ASSETS/bg1.png");
-    position:absolute;
+    position: absolute;
     content:'';
     left:0;
     top:0;
@@ -18,23 +18,24 @@ body::before{
     width:100%;
     height:100%;
     opacity:0.5;
-    display:block;
 }
 
-header{
+header {
     position: relative;
 }
-main{
+
+main {
     position:relative;
 }
 
-#footer {
+footer {
     position:fixed;
-    left:0px;
-    bottom:0px;
+    left:0;
+    bottom:0;
     height:30px;
     width:100%;
     background:#999;
+    right: 0;
  }
  
 .menu {
@@ -57,7 +58,8 @@ main{
     margin-bottom:10px;
     margin-top:10px;
 }
-a{
+
+a {
     color:inherit;
     text-decoration: none;            
 }
@@ -87,6 +89,7 @@ a{
 .menu li a:hover {
     background-color: #6CACB0;
 }
+
 .contenedor {
     width:50%;
     margin:auto;
@@ -114,6 +117,7 @@ h3{
 h2{
     margin-bottom:20px;
 }
+
 .registro{
     margin-top:50px;
     margin-bottom: 20px;
@@ -137,7 +141,7 @@ button:active {
     background-color: #6CACB0;
 }
 
-input[type="text"], input[type="date"], select{
+input[type="text"], input[type="date"], select {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -153,7 +157,6 @@ table td, table th {
     padding: 8px;
 }
 
-
 table th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -161,3 +164,14 @@ table th {
     background-color: white;
     color: black;
 }
+
+.formulario label {
+    display: block;
+    margin: 15px 0px;
+}
+
+.formulario .boton {
+    margin-top: 15px;
+}
+
+
